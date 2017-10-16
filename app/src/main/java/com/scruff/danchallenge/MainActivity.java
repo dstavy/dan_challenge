@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new OneFragment(), "Million+");
-        adapter.addFrag(new TwoFragment(), "Avg Pop");
-        adapter.addFrag(new ThreeFragment(), "Big/Small City");
+        adapter.addFrag(new OneFragment(), "Million+ States");
+        adapter.addFrag(new TwoFragment(), "Avg Pop / City");
+        adapter.addFrag(new ThreeFragment(), "Big & Small City");
         viewPager.setAdapter(adapter);
     }
 
