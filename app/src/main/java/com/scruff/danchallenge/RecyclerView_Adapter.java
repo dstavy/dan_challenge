@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public class RecyclerView_Adapter extends
-        RecyclerView.Adapter<DemoViewHolder> {
+        RecyclerView.Adapter<PlaceViewHolder> {
     private final List<Place> places;
 
 
@@ -26,7 +26,7 @@ public class RecyclerView_Adapter extends
     }
 
     @Override
-    public void onBindViewHolder(DemoViewHolder holder, int position) {
+    public void onBindViewHolder(PlaceViewHolder holder, int position) {
         //Setting text over textview
         Place place = places.get(position);
         holder.place.setText(place.getName());
@@ -34,14 +34,14 @@ public class RecyclerView_Adapter extends
     }
 
     @Override
-    public DemoViewHolder onCreateViewHolder(
+    public PlaceViewHolder onCreateViewHolder(
             ViewGroup viewGroup, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(viewGroup.getContext());
 
         ViewGroup mainGroup = (ViewGroup) mInflater.inflate(
                 R.layout.item_row, viewGroup, false);
 
-        return new DemoViewHolder(mainGroup);
+        return new PlaceViewHolder(mainGroup);
     }
 
 }

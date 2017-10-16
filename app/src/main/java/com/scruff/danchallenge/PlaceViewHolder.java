@@ -5,14 +5,14 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public class DemoViewHolder extends RecyclerView.ViewHolder {
+public class PlaceViewHolder extends RecyclerView.ViewHolder {
 
 
     public final TextView place;
     public final TextView pop;
 
 
-    public DemoViewHolder(View view) {
+    public PlaceViewHolder(View view) {
         super(view);
 
 
