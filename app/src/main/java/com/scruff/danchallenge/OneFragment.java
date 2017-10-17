@@ -10,41 +10,47 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
 public class OneFragment extends Fragment {
-    private View view;
-    private List<Place> mPlaces;
+    private List<State> oneMStates;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.one_fragment, container, false);
+        View view = inflater.inflate(R.layout.one_fragment, container, false);
+        List<Place> oneMStates = new ArrayList<Place>();
 
-        Collection<State> places = ((MyApplication) getActivity().getApplicationContext()).getStateMap().values();
-        mPlaces = new ArrayList<Place>();
+        Collection<State> states = ((MyApplication) getActivity().getApplicationContext()).getStateMap().values();
 
-        for (Place p : places) {
-            if (p.getPop() > 1000000) {
-                mPlaces.add(p);
+        for (State s : states) {
+            if (s.getPop() > 1000000) {
+                oneMStates.add(s);
             }
         }
-        //Arrays.sort( mPlaces );
+        Collections.sort(oneMStates, new Comparator<Place>() {
+            @Override
+            public int compare(Place o1, Place o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
 
-        setRecyclerView();
+        setRecyclerView(view, oneMStates);
         return view;
 
     }
 
     //Setting recycler view
-    private void setRecyclerView() {
+    private void setRecyclerView(View view, List<Place> places) {
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView
                 .setLayoutManager(new LinearLayoutManager(getActivity()));//Linear Items
 
-        RecyclerView_Adapter adapter = new RecyclerView_Adapter(mPlaces);
+        RecyclerView_Adapter adapter = new RecyclerView_Adapter(places);
         recyclerView.setAdapter(adapter);// set adapter on recyclerview
 
     }
