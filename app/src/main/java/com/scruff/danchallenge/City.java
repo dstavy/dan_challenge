@@ -7,7 +7,7 @@ package com.scruff.danchallenge;
 public class City implements Place {
 
     private final String name;
-    private final int pop;
+    private int pop;
 
     public City(String name, int pop) {
         this.name = name;
@@ -22,5 +22,9 @@ public class City implements Place {
     @Override
     public int getPop() {
         return pop;
+    }
+
+    public void setPop(int pop) {
+        this.pop = pop;
     }
 }

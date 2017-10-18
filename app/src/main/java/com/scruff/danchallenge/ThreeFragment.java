@@ -39,7 +39,7 @@ public class ThreeFragment extends Fragment {
                 State state = states.get(stateName);
                 if (state != null) {
                     Place smallestCity = state.getSmallestCity();
-                    Place biggestCity = state.getBigestCity();
+                    Place biggestCity = state.getBiggestCity();
                     smallCity.setText(smallestCity.getName());
                     smallCityPop.setText(NumberFormat.getInstance().format(smallestCity.getPop()));
                     bigCity.setText(biggestCity.getName());
